@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+        <record id="template__modelo_tree" model="ir.ui.view">
+            <field name="name">template.modelo.tree</field>
+            <field name="model">template.modelo</field>
+            <field name="arch" type="xml">
+                <tree string="Alumnos">
+                    <field name="name"/>
+                    <field name="apellidos"/>
+                    <field name="1ev"/>
+                    <field name="2ev"/>
+                    <field name="final"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="template_modelo_form" model="ir.ui.view">
+            <field name="name">template.modelo.form</field>
+            <field name="model">template.modelo</field>
+            <field name="arch" type="xml">
+                <form string="Formulario de alumnos" version="9.0">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="apellidos"/>
+                            <field name="1ev"/>
+                            <field name="2ev"/>
+                            <field name="final"/>
+                            <field name="active"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="template_modelo_action" model="ir.actions.act_window">
+            <field name="name">Calificaciones</field>
+            <field name="res_model">template.modelo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="template_modelo_menu" name="2DAM"/>
+        <menuitem id="template_modelo_submenu" name="SGE" parent="template_modelo_menu" sequence="0"/>
+
+        <menuitem id="sge" name="Alumnos" parent="template_modelo_submenu" sequence="0"
+                  action="template_modelo_action"/>
+
+    </data>
+</openerp>
